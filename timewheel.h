@@ -97,15 +97,15 @@ private:
     void    run() {
         fd_set r;
         FD_SET(m_pair[1], &r);
-        struct timeval  durcation;
+        struct timeval  duration;
         int delay = m_time_once;
         if(m_time_once > 1000) {
-            durcation.tv_sec = delay / 1000;
-            delay -= durcation.tv_sec * 1000;
+            duration.tv_sec = delay / 1000;
+            delay -= duration.tv_sec * 1000;
         }
-        durcation.tv_usec = delay * 1000;
+        duration.tv_usec = delay * 1000;
         for(;;) {
-            int ret = select(m_pair[1] + 1, &r, nullptr, nullptr, &durcation);
+            int ret = select(m_pair[1] + 1, &r, nullptr, nullptr, &duration);
             if(ret == -1) { // 异常
                 if(errno == EAGAIN || errno == EINTR || errno == EWOULDBLOCK) {
                     continue;
