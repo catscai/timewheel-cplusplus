@@ -24,7 +24,7 @@ public:
     struct task;
     typedef std::shared_ptr<task> TaskPtr;
     struct task {
-        int64_t TaskID;     // 任务ID
+        const int64_t TaskID;     // 任务ID
     private:
         int     TimeOut;    // 超时时间ms
         bool    Circle;     // 是否循环
