@@ -17,7 +17,7 @@
 #include <memory>
 #include <string>
 #include <queue>
-#include "timewheel.h"
+#include "timewheel_cpp.h"
 
 
 using namespace std;
@@ -62,9 +62,11 @@ int main()
 		cout << "circle 2 s" << " taskID = " << p4->TaskID  << endl;
 	});
 
-	sleep(30);
+	sleep(10);
 
 	tw.Stop();
+
+	sleep(10);
 
 
 	cout << "main end" << endl;
